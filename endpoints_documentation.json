@@ -1,0 +1,3835 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "security": [
+        {
+            "cookieAuth": []
+        }
+    ],
+    "paths": {
+        "/api/usuarios/{id}": {
+            "get": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "obtenerUsuarioPorId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UsuarioResponseDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "actualizarUsuarioPorMismoUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "refresh_token",
+                        "in": "cookie",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UsuarioActualizationRequestDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/{id}/ambientes": {
+            "get": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "listarAmbientesPermitidosDelUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "guardarAmbientesPermitidosDelUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ActualizarAmbientesPermitidosUsuarioDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nombres-bien/{id}": {
+            "put": {
+                "tags": [
+                    "nombre-bien-controller"
+                ],
+                "operationId": "actualizarNombreBien",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NombreBien"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NombreBien"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "nombre-bien-controller"
+                ],
+                "operationId": "eliminarNombreBienLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/marcas/{id}": {
+            "put": {
+                "tags": [
+                    "marca-controller"
+                ],
+                "operationId": "actualizarMarca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Marca"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Marca"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "marca-controller"
+                ],
+                "operationId": "eliminarMarcaLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/bienes/{id}": {
+            "get": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "obtenerBienActivoPorId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "actualizarBien",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BienGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BienListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "eliminarBienLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/{id}": {
+            "get": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "obtenerAmbientePorId",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "modo",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "DETALLE",
+                            "enum": [
+                                "DETALLE",
+                                "EDICION",
+                                "UTIL"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "actualizarAmbiente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AmbienteGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AmbienteListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "eliminarAmbienteLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "patchAmbiente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AmbientePatchWithOptionalsDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AmbienteListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/{id}/contenidos": {
+            "put": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "actualizarHijosAmbiente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AmbienteChildrenGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/{id}/password": {
+            "post": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "cambiarContrasenaPorMismoUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ChangePasswordRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UsuarioResponseDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reportes/bienes": {
+            "post": {
+                "tags": [
+                    "reporte-controller"
+                ],
+                "operationId": "emitirReporteDeBienes",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReporteBienesRequestDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reportes/bienes/xlsx": {
+            "post": {
+                "tags": [
+                    "reporte-controller"
+                ],
+                "operationId": "emitirReporteDeBienesExcel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReporteBienesRequestDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reportes/ambiente": {
+            "post": {
+                "tags": [
+                    "reporte-controller"
+                ],
+                "operationId": "emitirReporteDeAmbiente",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReporteAmbienteRequestDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reportes/ambiente/xlsx": {
+            "post": {
+                "tags": [
+                    "reporte-controller"
+                ],
+                "operationId": "emitirReporteDeAmbienteExcel",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReporteAmbienteRequestDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reportes-dinamicos/ambiente": {
+            "post": {
+                "tags": [
+                    "reporte-dinamico-controller"
+                ],
+                "operationId": "emitirReporteDeAmbiente_1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ReporteDinamicoDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notificaciones-movimiento": {
+            "get": {
+                "tags": [
+                    "notificacion-movimiento-controller"
+                ],
+                "operationId": "listarNotificacionesPaginado",
+                "parameters": [
+                    {
+                        "name": "paramsDTO",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/BuscarNotificacionesMovimientoParamsDTO"
+                        }
+                    },
+                    {
+                        "name": "pageableDTO",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/PageableDTO"
+                        }
+                    },
+                    {
+                        "name": "soloCountPendientes",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "notificacion-movimiento-controller"
+                ],
+                "operationId": "notificarMovimiento",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NuevaNotificacionMovimientoDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotificacionMovimientoListadoForUserProjection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notificaciones-movimiento/{id}/revision": {
+            "post": {
+                "tags": [
+                    "notificacion-movimiento-controller"
+                ],
+                "operationId": "revisarNotificacionMovimientoPorAdmin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RevisionMovimientoGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetalleNotificacionConRevisionProjection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nombres-bien": {
+            "get": {
+                "tags": [
+                    "nombre-bien-controller"
+                ],
+                "operationId": "listarTodasNombreBienes",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/PageNombreBienResponseDTO"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/IdAndNombreOnly"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "nombre-bien-controller"
+                ],
+                "operationId": "guardarNombreBien",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NombreBien"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NombreBien"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/modificaciones/notificaciones": {
+            "get": {
+                "tags": [
+                    "modificacion-controller"
+                ],
+                "operationId": "obtenerModificacionesSinRevisar",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "modificacion-controller"
+                ],
+                "operationId": "revisarTodasModificaciones",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/marcas": {
+            "get": {
+                "tags": [
+                    "marca-controller"
+                ],
+                "operationId": "listarTodasMarcas",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/PageMarcaResponseDTO"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/IdAndNombreOnly"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "marca-controller"
+                ],
+                "operationId": "guardarMarca",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Marca"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Marca"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/bienes": {
+            "get": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "buscarBienes",
+                "parameters": [
+                    {
+                        "name": "buscarBienesParamsDTO",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/BuscarBienesParamsDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageBienListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "guardarBien",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BienGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BienListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/reset-password": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "reset",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetPasswordDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "register",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/refresh": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "refreshToken",
+                "parameters": [
+                    {
+                        "name": "refresh_token",
+                        "in": "cookie",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "logout",
+                "parameters": [
+                    {
+                        "name": "refresh_token",
+                        "in": "cookie",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "login",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/forgot-password": {
+            "post": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "forgot",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/EmailDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/ambientes": {
+            "get": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "buscarCompleto",
+                "parameters": [
+                    {
+                        "name": "buscarAmbienteParamsDTO",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/BuscarAmbienteParamsDTO"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "guardarAmbiente",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AmbienteGuardarDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AmbienteListadoDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/{id}/puedeVerTodosLosAmbientes": {
+            "patch": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "alternarPermisoTodosAmbientesUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/{id}/cargo": {
+            "patch": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "asignarCargoUsuarioCP",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "string",
+                                "enum": [
+                                    "ADMIN_CP",
+                                    "MAYOR_CP",
+                                    "ASISTENTE_CP",
+                                    "ADMIN_CA",
+                                    "PROFESOR_CA",
+                                    "ADMIN_CENTRAL"
+                                ]
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/{id}/activo": {
+            "patch": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "cambiarActivoUsuario",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/nombres-bien/{id}/activo": {
+            "patch": {
+                "tags": [
+                    "nombre-bien-controller"
+                ],
+                "operationId": "activarNombreBienLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/marcas/{id}/activo": {
+            "patch": {
+                "tags": [
+                    "marca-controller"
+                ],
+                "operationId": "activarAmbienteLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/bienes/{id}/activo": {
+            "patch": {
+                "tags": [
+                    "bien-controller"
+                ],
+                "operationId": "agregarBienLogico",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/{id}/activo": {
+            "patch": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "activarAmbienteLogico_1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios": {
+            "get": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "listarTodosUsuarios",
+                "parameters": [
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "$ref": "#/components/schemas/PageUsuarioResponseDTO"
+                                        },
+                                        {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/UsuarioResponseDTO"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/usuarios/buscar": {
+            "get": {
+                "tags": [
+                    "usuario-controller"
+                ],
+                "operationId": "busquedaAvanzadaUsuariosPaginado",
+                "parameters": [
+                    {
+                        "name": "nombres",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "apellidos",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "cargo",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "correo",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dependencia",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "codigoUniversidad",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "activo",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageUsuarioResponseDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sesiones": {
+            "get": {
+                "tags": [
+                    "registro-sesion-controller"
+                ],
+                "operationId": "listarIniciosDeSesion",
+                "parameters": [
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageRegistroSesionResponseDTO"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notificaciones-movimiento/{id}": {
+            "get": {
+                "tags": [
+                    "notificacion-movimiento-controller"
+                ],
+                "operationId": "getDetalleYRevisionNotificacionMovimiento",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DetalleNotificacionConRevisionProjection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/modificaciones": {
+            "get": {
+                "tags": [
+                    "modificacion-controller"
+                ],
+                "operationId": "listarModificacionesPaginado",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "campoCambiado",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nota",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "tipo",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fechaHoraMIN",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "fechaHoraMAX",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date"
+                        }
+                    },
+                    {
+                        "name": "idBien",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "idNombreBien",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "idUsuario",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageModificacionProjection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/cambios-usuario": {
+            "get": {
+                "tags": [
+                    "cambio-usuario-controller"
+                ],
+                "operationId": "listarPaginado",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "texto",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PageCambioUsuarioListadoProjection"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/me": {
+            "get": {
+                "tags": [
+                    "auth-controller"
+                ],
+                "operationId": "me",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/tree": {
+            "get": {
+                "tags": [
+                    "ambiente-tree-controller"
+                ],
+                "operationId": "getTree",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AmbienteTreeNodeDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/tree/{id}": {
+            "get": {
+                "tags": [
+                    "ambiente-tree-controller"
+                ],
+                "operationId": "getTreeParaUnAmbiente",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AmbienteTreeNodeDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ambientes/todos": {
+            "get": {
+                "tags": [
+                    "ambiente-controller"
+                ],
+                "operationId": "listarTodos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "UsuarioActualizationRequestDTO": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "maxLength": 25,
+                        "minLength": 2
+                    },
+                    "nombres": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 1
+                    },
+                    "apellidos": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 1
+                    },
+                    "correo": {
+                        "type": "string",
+                        "format": "email",
+                        "minLength": 1
+                    },
+                    "dependencia": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 2
+                    },
+                    "codigoUniversidad": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 2
+                    }
+                },
+                "required": [
+                    "apellidos",
+                    "correo",
+                    "nombres",
+                    "username"
+                ]
+            },
+            "ActualizarAmbientesPermitidosUsuarioDTO": {
+                "type": "object",
+                "properties": {
+                    "idsAmbientesPermitidos": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "uniqueItems": true
+                    }
+                },
+                "required": [
+                    "idsAmbientesPermitidos"
+                ]
+            },
+            "NombreBien": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 2
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "nombre"
+                ]
+            },
+            "Marca": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 2
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "nombre"
+                ]
+            },
+            "BienGuardarDTO": {
+                "type": "object",
+                "properties": {
+                    "idNombreBien": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "descripcion": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "sbn": {
+                        "type": "string",
+                        "maxLength": 80,
+                        "minLength": 0
+                    },
+                    "modelo": {
+                        "type": "string",
+                        "maxLength": 120,
+                        "minLength": 0
+                    },
+                    "numSerie": {
+                        "type": "string",
+                        "maxLength": 120,
+                        "minLength": 0
+                    },
+                    "costoCompra": {
+                        "type": "number",
+                        "minimum": 0.0
+                    },
+                    "fechaCompra": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "anhoFabricacion": {
+                        "type": "integer",
+                        "format": "int32",
+                        "maximum": 2200,
+                        "minimum": 1900
+                    },
+                    "idMarca": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "idAmbiente": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO",
+                            "PERDIDO",
+                            "FUERA_DE_SERVICIO"
+                        ]
+                    },
+                    "tipo": {
+                        "type": "string",
+                        "enum": [
+                            "EQUIPO",
+                            "MUEBLE"
+                        ]
+                    },
+                    "condicion": {
+                        "type": "string",
+                        "enum": [
+                            "BUENO",
+                            "REGULAR",
+                            "MALO"
+                        ]
+                    },
+                    "nota": {
+                        "type": "string",
+                        "maxLength": 80,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "estado",
+                    "idAmbiente",
+                    "idNombreBien",
+                    "tipo"
+                ]
+            },
+            "BienListadoDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "idNombre": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombreNombreBien": {
+                        "type": "string"
+                    },
+                    "descripcion": {
+                        "type": "string"
+                    },
+                    "sbn": {
+                        "type": "string"
+                    },
+                    "modelo": {
+                        "type": "string"
+                    },
+                    "numSerie": {
+                        "type": "string"
+                    },
+                    "fechaAgregacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "idMarca": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombreMarca": {
+                        "type": "string"
+                    },
+                    "idAmbiente": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombreAmbiente": {
+                        "type": "string"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO",
+                            "PERDIDO",
+                            "FUERA_DE_SERVICIO"
+                        ]
+                    },
+                    "tipo": {
+                        "type": "string",
+                        "enum": [
+                            "EQUIPO",
+                            "MUEBLE"
+                        ]
+                    },
+                    "condicion": {
+                        "type": "string",
+                        "enum": [
+                            "BUENO",
+                            "REGULAR",
+                            "MALO"
+                        ]
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "AmbienteChildrenGuardarDTO": {
+                "type": "object",
+                "properties": {
+                    "idsAmbientesHijos": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "maxItems": 2147483647,
+                        "minItems": 0
+                    }
+                },
+                "required": [
+                    "idsAmbientesHijos"
+                ]
+            },
+            "AmbienteGuardarDTO": {
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 3
+                    },
+                    "ubicacion": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO"
+                        ]
+                    },
+                    "idAmbientePadre": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "hijos": {
+                        "$ref": "#/components/schemas/AmbienteChildrenGuardarDTO"
+                    }
+                },
+                "required": [
+                    "estado",
+                    "nombre"
+                ]
+            },
+            "AmbienteListadoDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "ubicacion": {
+                        "type": "string"
+                    },
+                    "fechaCreacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO"
+                        ]
+                    },
+                    "idAmbientePadre": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombreAmbientePadre": {
+                        "type": "string"
+                    },
+                    "cantBienes": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "ChangePasswordRequest": {
+                "type": "object",
+                "properties": {
+                    "lastPassword": {
+                        "type": "string",
+                        "maxLength": 72,
+                        "minLength": 8
+                    },
+                    "newPassword": {
+                        "type": "string",
+                        "maxLength": 72,
+                        "minLength": 8
+                    }
+                },
+                "required": [
+                    "lastPassword",
+                    "newPassword"
+                ]
+            },
+            "RolNombreModuloDTO": {
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "modulo": {
+                        "type": "string"
+                    }
+                }
+            },
+            "UsuarioResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombres": {
+                        "type": "string"
+                    },
+                    "apellidos": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RolNombreModuloDTO"
+                        },
+                        "uniqueItems": true
+                    },
+                    "cargo": {
+                        "type": "string"
+                    },
+                    "correo": {
+                        "type": "string"
+                    },
+                    "dependencia": {
+                        "type": "string"
+                    },
+                    "fechaCreacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "codigoUniversidad": {
+                        "type": "string"
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    },
+                    "puedeVerTodosLosAmbientes": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ReporteBienesRequestDTO": {
+                "type": "object",
+                "properties": {
+                    "mostrarCambios": {
+                        "type": "boolean"
+                    },
+                    "fechaDesdeCambios": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "ipUsuario": {
+                        "type": "string"
+                    },
+                    "columnasDeseadas": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "idsNombreBien": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    "idsAmbiente": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    "estado": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "OPERATIVO",
+                                "DANIADO",
+                                "EN_REPARACION",
+                                "DADO_DE_BAJA",
+                                "EN_MANTENIMIENTO",
+                                "PERDIDO",
+                                "FUERA_DE_SERVICIO"
+                            ]
+                        }
+                    },
+                    "tipos": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "EQUIPO",
+                                "MUEBLE"
+                            ]
+                        }
+                    },
+                    "idsMarca": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    "anhoFabricacionMIN": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "anhoFabricacionMAX": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fecha_compraMIN": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "fecha_compraMAX": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "comodinSbn": {
+                        "type": "string"
+                    },
+                    "ascendente": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "mostrarCambios"
+                ]
+            },
+            "ReporteAmbienteRequestDTO": {
+                "type": "object",
+                "properties": {
+                    "mostrarCambios": {
+                        "type": "boolean"
+                    },
+                    "fechaDesdeCambios": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "ipUsuario": {
+                        "type": "string"
+                    },
+                    "columnasDeseadas": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "idAmbiente": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "ascendente": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "ascendente",
+                    "idAmbiente",
+                    "mostrarCambios"
+                ]
+            },
+            "ReporteDinamicoDTO": {
+                "type": "object",
+                "properties": {
+                    "columnasDeseadas": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "reporteDTO": {
+                        "$ref": "#/components/schemas/ReporteBienesRequestDTO"
+                    }
+                }
+            },
+            "NuevaNotificacionMovimientoDTO": {
+                "type": "object",
+                "properties": {
+                    "idBien": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "idAmbienteDestino": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "descripcion": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "idBien"
+                ]
+            },
+            "BienNameAndSbnProjection": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "sbn": {
+                        "type": "string"
+                    },
+                    "nombre": {
+                        "$ref": "#/components/schemas/NombreNombreBienProjection"
+                    }
+                }
+            },
+            "IdAndNombreOnly": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "NombreNombreBienProjection": {
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string"
+                    }
+                }
+            },
+            "NotificacionMovimientoListadoForUserProjection": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "bien": {
+                        "$ref": "#/components/schemas/BienNameAndSbnProjection"
+                    },
+                    "ambienteDestino": {
+                        "$ref": "#/components/schemas/IdAndNombreOnly"
+                    },
+                    "instanteReporte": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "ambienteOrigen": {
+                        "$ref": "#/components/schemas/IdAndNombreOnly"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "PENDIENTE",
+                            "APROBADO",
+                            "RECHAZADO",
+                            "IGNORADO"
+                        ]
+                    },
+                    "descripcionNotificacion": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RevisionMovimientoGuardarDTO": {
+                "type": "object",
+                "properties": {
+                    "nuevoEstado": {
+                        "type": "string",
+                        "enum": [
+                            "APROBADO",
+                            "RECHAZADO",
+                            "IGNORADO"
+                        ]
+                    },
+                    "notaDeRevision": {
+                        "type": "string",
+                        "maxLength": 80,
+                        "minLength": 0
+                    },
+                    "idAmbienteDestinoRealReemplazado": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "required": [
+                    "nuevoEstado"
+                ]
+            },
+            "DetalleNotificacionConRevisionProjection": {
+                "type": "object",
+                "properties": {
+                    "notaDeRevision": {
+                        "type": "string"
+                    },
+                    "usuarioRevisor": {
+                        "$ref": "#/components/schemas/IdAndNombresApellidosForUsuarioOnly"
+                    },
+                    "ambienteFinalDeRevisionCasoRechazo": {
+                        "$ref": "#/components/schemas/IdAndNombreOnly"
+                    },
+                    "instanteRevision": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "usuarioReporteador": {
+                        "$ref": "#/components/schemas/IdAndNombresApellidosForUsuarioOnly"
+                    },
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "bien": {
+                        "$ref": "#/components/schemas/BienNameAndSbnProjection"
+                    },
+                    "ambienteDestino": {
+                        "$ref": "#/components/schemas/IdAndNombreOnly"
+                    },
+                    "instanteReporte": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "ambienteOrigen": {
+                        "$ref": "#/components/schemas/IdAndNombreOnly"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "PENDIENTE",
+                            "APROBADO",
+                            "RECHAZADO",
+                            "IGNORADO"
+                        ]
+                    },
+                    "descripcionNotificacion": {
+                        "type": "string"
+                    }
+                }
+            },
+            "IdAndNombresApellidosForUsuarioOnly": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "apellidos": {
+                        "type": "string"
+                    },
+                    "nombres": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ResetPasswordDTO": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "newPassword": {
+                        "type": "string",
+                        "maxLength": 72,
+                        "minLength": 8
+                    }
+                },
+                "required": [
+                    "newPassword",
+                    "token"
+                ]
+            },
+            "RegisterRequest": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 3
+                    },
+                    "password": {
+                        "type": "string",
+                        "maxLength": 72,
+                        "minLength": 8
+                    },
+                    "nombres": {
+                        "type": "string",
+                        "maxLength": 60,
+                        "minLength": 1
+                    },
+                    "apellidos": {
+                        "type": "string",
+                        "maxLength": 60,
+                        "minLength": 1
+                    },
+                    "correo": {
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "dependencia": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 0
+                    },
+                    "codigoUniversidad": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "minLength": 0
+                    }
+                },
+                "required": [
+                    "apellidos",
+                    "correo",
+                    "nombres",
+                    "password",
+                    "username"
+                ]
+            },
+            "LoginRequest": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 2
+                    },
+                    "password": {
+                        "type": "string",
+                        "maxLength": 72,
+                        "minLength": 8
+                    }
+                },
+                "required": [
+                    "password",
+                    "username"
+                ]
+            },
+            "EmailDTO": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "minLength": 1
+                    }
+                },
+                "required": [
+                    "email"
+                ]
+            },
+            "AmbientePatchWithOptionalsDTO": {
+                "type": "object",
+                "properties": {
+                    "nombre": {
+                        "type": "string",
+                        "maxLength": 100,
+                        "minLength": 3
+                    },
+                    "ubicacion": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO"
+                        ]
+                    },
+                    "fotoPath": {
+                        "type": "string",
+                        "maxLength": 255,
+                        "minLength": 0
+                    },
+                    "idAmbientePadre": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "hijos": {
+                        "$ref": "#/components/schemas/AmbienteChildrenGuardarDTO"
+                    }
+                },
+                "required": [
+                    "estado",
+                    "nombre"
+                ]
+            },
+            "PageUsuarioResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UsuarioResponseDTO"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PageableObject": {
+                "type": "object",
+                "properties": {
+                    "offset": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "unpaged": {
+                        "type": "boolean"
+                    },
+                    "paged": {
+                        "type": "boolean"
+                    },
+                    "pageNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "SortObject": {
+                "type": "object",
+                "properties": {
+                    "empty": {
+                        "type": "boolean"
+                    },
+                    "unsorted": {
+                        "type": "boolean"
+                    },
+                    "sorted": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PageRegistroSesionResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/RegistroSesionResponseDTO"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "RegistroSesionResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "idUsuario": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombresUsuario": {
+                        "type": "string"
+                    },
+                    "apellidosUsuario": {
+                        "type": "string"
+                    },
+                    "fechaHoraInicio": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaHoraCierre": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "ip": {
+                        "type": "string"
+                    },
+                    "navegador": {
+                        "type": "string"
+                    },
+                    "exitoso": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "BuscarNotificacionesMovimientoParamsDTO": {
+                "type": "object",
+                "properties": {
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "PENDIENTE",
+                            "APROBADO",
+                            "RECHAZADO",
+                            "IGNORADO"
+                        ]
+                    },
+                    "fechaMin": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaMax": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "nombreEquipo": {
+                        "type": "string"
+                    },
+                    "sbnEquipo": {
+                        "type": "string"
+                    },
+                    "idUsuarioReporteador": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "PageableDTO": {
+                "type": "object",
+                "properties": {
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "type": "string"
+                    },
+                    "asc": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "NombreBienResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    },
+                    "cantBienes": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "PageNombreBienResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/NombreBienResponseDTO"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "ModificacionProjection": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "tipo": {
+                        "type": "string"
+                    },
+                    "nota": {
+                        "type": "string"
+                    },
+                    "usuarioApellidos": {
+                        "type": "string"
+                    },
+                    "usuarioNombres": {
+                        "type": "string"
+                    },
+                    "campoCambiado": {
+                        "type": "string"
+                    },
+                    "valorNuevo": {
+                        "type": "string"
+                    },
+                    "fechaHora": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "valorAnterior": {
+                        "type": "string"
+                    },
+                    "bienId": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "bienNombre": {
+                        "type": "string"
+                    },
+                    "bienSbn": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PageModificacionProjection": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ModificacionProjection"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "MarcaResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    },
+                    "cantBienes": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "PageMarcaResponseDTO": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MarcaResponseDTO"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "CambioUsuarioListadoProjection": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "campoCambiado": {
+                        "type": "string"
+                    },
+                    "valorNuevo": {
+                        "type": "string"
+                    },
+                    "valorAnterior": {
+                        "type": "string"
+                    },
+                    "apellidosUsuarioCambiado": {
+                        "type": "string"
+                    },
+                    "usuarioModificador_Id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombresUsuarioCambiado": {
+                        "type": "string"
+                    },
+                    "usuarioCambiado_Id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombresUsuarioModificador": {
+                        "type": "string"
+                    },
+                    "apellidosUsuarioModificador": {
+                        "type": "string"
+                    },
+                    "fechaCambio": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "PageCambioUsuarioListadoProjection": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CambioUsuarioListadoProjection"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "BuscarBienesParamsDTO": {
+                "type": "object",
+                "properties": {
+                    "texto": {
+                        "type": "string"
+                    },
+                    "idNombreBien": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "descripcion": {
+                        "type": "string"
+                    },
+                    "modelo": {
+                        "type": "string"
+                    },
+                    "sbn": {
+                        "type": "string"
+                    },
+                    "anhoFabricacionMIN": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "anhoFabricacionMAX": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "costoCompraMIN": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "costoCompraMAX": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "fechaCompraMIN": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "fechaCompraMAX": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "fechaAgregacionMIN": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaAgregacionMAX": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "idMarca": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "sinMarca": {
+                        "type": "boolean"
+                    },
+                    "idAmbiente": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO",
+                            "PERDIDO",
+                            "FUERA_DE_SERVICIO"
+                        ]
+                    },
+                    "tipo": {
+                        "type": "string",
+                        "enum": [
+                            "EQUIPO",
+                            "MUEBLE"
+                        ]
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "PageBienListadoDTO": {
+                "type": "object",
+                "properties": {
+                    "totalElements": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "first": {
+                        "type": "boolean"
+                    },
+                    "last": {
+                        "type": "boolean"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "content": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/BienListadoDTO"
+                        }
+                    },
+                    "number": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "sort": {
+                        "$ref": "#/components/schemas/SortObject"
+                    },
+                    "numberOfElements": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageable": {
+                        "$ref": "#/components/schemas/PageableObject"
+                    },
+                    "empty": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "BuscarAmbienteParamsDTO": {
+                "type": "object",
+                "properties": {
+                    "texto": {
+                        "type": "string"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "ubicacion": {
+                        "type": "string"
+                    },
+                    "fechaCreacionMIN": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fechaCreacionMAX": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO"
+                        ]
+                    },
+                    "idAmbientePadre": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "page": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "AmbienteTreeNodeDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "ubicacion": {
+                        "type": "string"
+                    },
+                    "fechaCreacion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "estado": {
+                        "type": "string",
+                        "enum": [
+                            "OPERATIVO",
+                            "DANIADO",
+                            "EN_REPARACION",
+                            "DADO_DE_BAJA",
+                            "EN_MANTENIMIENTO"
+                        ]
+                    },
+                    "fotoPath": {
+                        "type": "string"
+                    },
+                    "activo": {
+                        "type": "boolean"
+                    },
+                    "parentId": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "cookieAuth": {
+                "type": "apiKey",
+                "description": "JWT almacenado en cookie. Usa el endpoint /api/auth/login para obtenerla o la ventana Authorize.",
+                "name": "access_token",
+                "in": "cookie"
+            }
+        }
+    }
+}
